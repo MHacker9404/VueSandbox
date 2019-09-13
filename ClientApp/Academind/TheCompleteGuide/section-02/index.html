@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My first Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <h1 v-once>{{ message }}</h1>
+            <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+            <p>{{ sayHello() }} - <a v-bind:href="getGoogleLink()">Google</a></p>
+            <p>{{ finishedLink }}</p>
+            <p v-html="finishedLink"></p>
+        </div>
+
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'Hello Vue!',
+                    link: 'http://google.com',
+                    finishedLink: '<a href="http://google.com">Google</a>',
+                },
+                methods: {
+                    sayHello: function() {
+                        // return 'Hello';
+                        this.message = 'Just Hello!';
+                        return this.message;
+                    },
+                    getGoogleLink: function() {
+                        return 'http://google.com';
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
