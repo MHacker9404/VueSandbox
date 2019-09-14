@@ -1,0 +1,32 @@
+<html>
+    <body>
+        <!-- Put this in the HTML section in JSFiddle! -->
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+        <div id="app">
+            <ul>
+                <li v-for="(ingredient, index) in ingredients" :key="`${index}:${ingredient}`">
+                    {{ ingredient }} ({{ index }})
+                </li>
+            </ul>
+            <hr />
+            <ul>
+                <li v-for="(person,index) in persons">
+                    {{ person.name }}: {{ index }}
+                    <span v-for="(value, key, index) in person"> - {{ key }}/{{ index }}:{{ value }}</span>
+                    <div v-for="(value, key, index) in person">- {{ key }}/{{ index }}:{{ value }}</div>
+                </li>
+            </ul>
+            <hr />
+            <span v-for="n in 10">{{ n }} </span>
+            <hr />
+            <template v-for="(ingredient, index) in ingredients">
+                <h1>{{ ingredient }}</h1>
+                <p>{{ index }}</p>
+            </template>
+            <button @click='ingredients.push("spices")'>Add spices</button>
+        </div>
+
+        <script src="app.js"></script>
+    </body>
+</html>
