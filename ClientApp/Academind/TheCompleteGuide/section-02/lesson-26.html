@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My first Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- <button v-on:click="changeLink">Click to change link</button> -->
+            <button @click="changeLink">Click to change link</button>
+            <!-- <a v-bind:href="link">Link</a> -->
+            <a :href="link">Link</a>
+        </div>
+
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    link: 'http://google.com',
+                },
+                //  runs synchronously
+                computed: {},
+                //  runs asynchronous
+                watch: {},
+                methods: {
+                    changeLink: function() {
+                        this.link = 'http://apple.com';
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
