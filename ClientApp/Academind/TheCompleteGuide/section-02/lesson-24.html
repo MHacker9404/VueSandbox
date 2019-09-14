@@ -23,10 +23,21 @@
                     secondCounter: 0,
                     // result: '',
                 },
+                //  runs synchronously
                 computed: {
                     output: function() {
                         console.log('computed');
                         return this.counter > 5 ? 'Greater 5' : 'Smaller 5';
+                    },
+                },
+                //  runs asynchronous
+                watch: {
+                    counter: function(value) {
+                        var self = this;
+                        console.log(value);
+                        setTimeout(function() {
+                            self.counter = 0;
+                        }, 3000);
                     },
                 },
                 methods: {
