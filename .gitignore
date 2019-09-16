@@ -9,10 +9,19 @@
 *.userosscache
 *.sln.docstates
 
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
 # Build results
+dist/
+
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -237,6 +246,9 @@ FakesAssemblies/
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
 node_modules/
+
+npm-debug.log
+yarn-error.log
 
 # Typescript v1 declaration files
 typings/
