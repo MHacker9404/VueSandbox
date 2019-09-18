@@ -1,20 +1,9 @@
 <template>
-  <div>
-      <h1>Hello world</h1>
-      <p>Server Status: {{status}}</p>
-      <hr>
-      <app-home-component></app-home-component>
-  </div>
+    <app-servers></app-servers>
 </template>
 
 <script>
-export default {
-    data: function(){
-        return {
-            status: 'Critical!',
-        }
-    },
-}
+export default {}
 </script>
 
 <style>
