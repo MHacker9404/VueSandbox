@@ -1,9 +1,9 @@
 <template>
-    <div class="component">
+    <div class="component text-center user">
         <h1>The User Component</h1>
         <p>I'm an awesome User!</p>
         <hr>
-        <div class="row">
+        <div class="row justify-content-md-center">
             <div class="col-xs-12 col-sm-6">
                 <app-user-detail></app-user-detail>
             </div>
@@ -16,20 +16,20 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-    import UserDetail from './UserDetail.vue';
-    import UserEdit from './UserEdit.vue';
+import UserDetail from './UserDetail.vue';
+import UserEdit from './UserEdit.vue';
 
 @Component({
-        components: {
-            appUserDetail: UserDetail,
-            appUserEdit: UserEdit
-        }
+    components: {
+        appUserDetail: UserDetail,
+        appUserEdit: UserEdit,
+    },
 })
 export default class User extends Vue {}
 </script>
 
 <style scoped>
-    div {
+    .user {
         background-color: lightblue;
     }
 </style>

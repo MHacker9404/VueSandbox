@@ -1,5 +1,5 @@
 <template>
-    <div class="component">
+    <div class="component user-detail">
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
     </div>
@@ -13,7 +13,7 @@ export default class UserDetail extends Vue {}
 </script>
 
 <style scoped>
-    div {
+    .user-detail {
         background-color: lightcoral;
     }
 </style>

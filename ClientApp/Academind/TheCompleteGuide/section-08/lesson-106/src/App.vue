@@ -1,6 +1,6 @@
 <template>
-    <div id='app'>
-        <div class="row">
+    <div class='container'>
+        <div class="row justify-content-md-center">
             <div class="col-xs-12">
                 <app-user></app-user>
             </div>
@@ -14,19 +14,15 @@ import User from './components/User.vue';
 
 @Component({
   components: {
-      appUser: User
+      appUser: User,
   },
 })
 export default class App extends Vue {}
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+div.component {
+   border: 1px solid black;
+        padding: 30px;
 }
 </style>
