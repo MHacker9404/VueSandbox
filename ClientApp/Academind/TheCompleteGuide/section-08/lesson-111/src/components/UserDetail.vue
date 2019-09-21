@@ -3,7 +3,7 @@
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
         <hr>
-        <p>{{_name}}</p>
+        <p>{{_name}} | {{_age}}</p>
         <button @click='resetName'>Reset Name by emit</button>
         <button @click='resetFn'>Reset Name by callback</button>
     </div>
@@ -14,14 +14,19 @@
 
     @Component
     export default class UserDetail extends Vue {
-        @Prop( { type: String, required: true} ) private name!: string;
-        @Prop({type: Function}) private resetFn!: () => void;
+        @Prop( { type: String } ) public name!: string;
+        @Prop( { type: Number } ) public age!: number;
+        @Prop({type: Function}) public resetFn!: () => void;
 
         get _name() {
             return this.name.split('').reverse().join('');
         }
 
-        @Emit('nameWasReset') private resetName(): string {
+        get _age() {
+            return this.age;
+        }
+
+        @Emit('nameWasReset') public resetName(): string {
             return 'Phil';
         }
     }
