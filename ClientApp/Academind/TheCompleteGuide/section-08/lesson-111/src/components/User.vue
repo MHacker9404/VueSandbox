@@ -8,7 +8,10 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail :name='name'></app-user-detail>
+                <app-user-detail :name='name'
+                @nameWasReset='nameWasReset($event)'
+                :resetFn='resetName'>
+                </app-user-detail>
             </div>
             <div class="col-xs-12 col-sm-6">
                 <app-user-edit></app-user-edit>
@@ -31,8 +34,16 @@
     export default class User extends Vue {
         private name: string = 'Phil';
 
+        public resetName(): void {
+            this.name = 'Phil';
+        }
+
         private changeName(): void {
             this.name = 'Clara';
+        }
+
+        private nameWasReset(event: string): void {
+            this.name = event;
         }
      }
 </script>
