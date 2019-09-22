@@ -1,6 +1,16 @@
 <template>
-    <div class='component quote'>
-        <slot></slot>
+    <div class='quote'>
+        <div class="title row quote">
+            <div class="col-xs-12">
+                <slot name='title'></slot>
+            </div>
+        </div>
+        <hr>
+        <div class="content row quote">
+            <div class="col-xs-12">
+                <slot name='content'></slot>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -8,8 +18,7 @@
     import { Component, Vue, Prop } from 'vue-property-decorator';
 
     @Component
-    export default class Quote extends Vue {
-     }
+    export default class Quote extends Vue { }
 </script>
 
 <style scoped lang="scss">
@@ -19,6 +28,9 @@
         padding: 30px;
         margin: 30px auto;
         text-align: center;
+    }
+    .title {
+        font-style: italic
     }
     h2 {
         color: red;

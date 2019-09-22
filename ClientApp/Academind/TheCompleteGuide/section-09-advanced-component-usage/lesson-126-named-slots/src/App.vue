@@ -1,9 +1,13 @@
 <template>
     <div class="container">
-        <app-quote>
-            <h2>{{title}}</h2>
-            <p>{{quote}}</p>
-        </app-quote>
+        <div class="row justify-content-center">
+            <div class="col-xs-12 component">
+                <app-quote>
+                    <h2 slot='title'>{{title}}</h2>
+                    <p slot='content'>{{quote}}</p>
+                </app-quote>
+            </div>
+        </div>
     </div>
 </template>
 
