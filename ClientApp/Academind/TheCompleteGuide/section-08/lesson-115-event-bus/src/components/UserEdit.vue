@@ -8,7 +8,8 @@
 </template>
 
 <script lang='ts'>
-    import { Component, Prop, Vue, Emit } from 'vue-property-decorator';
+    import { Component, Prop, Vue, Emit, PropSync } from 'vue-property-decorator';
+    import {EventBus} from '../main';
 
     @Component
     export default class UserEdit extends Vue {
@@ -18,8 +19,12 @@
             return this.userAge;
         }
 
-        @Emit('ageWasEdited') public editAge(): number {
-            return 55;
+        // @Emit('ageWasEdited') public editAge(): number {
+        //     return 55;
+        // }
+        private editAge(): void {
+            this.userAge = 55;
+            EventBus.$emit('ageWasEdited', this.userAge);
         }
     }
 </script>

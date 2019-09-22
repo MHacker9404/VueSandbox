@@ -10,7 +10,8 @@
 </template>
 
 <script lang='ts'>
-    import { Component, Prop, Vue, Emit } from 'vue-property-decorator';
+    import { Component, Prop, Vue, Emit, PropSync } from 'vue-property-decorator';
+    import {EventBus} from '../main';
 
     @Component
     export default class UserDetail extends Vue {
@@ -28,6 +29,12 @@
 
         @Emit('nameWasReset') public resetName(): string {
             return 'Phil';
+        }
+
+        private created(): void {
+            EventBus.$on('ageWasEdited', (age: number) => {
+                this.age = age;
+            });
         }
     }
 </script>

@@ -19,7 +19,7 @@
         "vue-template-compiler": "^2.6.10",
         "webpack": "^4.40.2"
     },
-    "name": "lesson-111",
+    "name": "lesson-115",
     "private": true,
     "scripts": {
         "build": "vue-cli-service build",
