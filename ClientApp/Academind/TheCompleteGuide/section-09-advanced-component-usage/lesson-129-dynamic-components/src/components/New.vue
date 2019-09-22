@@ -1,6 +1,9 @@
 <template>
-    <div class='new'>
+    <div class="new">
         <h3>New Quote</h3>
+        <button @click="counter += 1">Increment counter</button>
+        <hr />
+        <p>{{ counter }}</p>
     </div>
 </template>
 
@@ -8,7 +11,18 @@
     import { Component, Vue, Prop } from 'vue-property-decorator';
 
     @Component
-    export default class New extends Vue { }
+    export default class New extends Vue {
+        private counter: number = 0;
+        protected destroyed() {
+            console.log('destroyed');
+        }
+        protected deactivated() {
+            console.log('deactivated');
+        }
+        protected activated() {
+            console.log('activated');
+        }
+    }
 </script>
 
 <style scoped lang="scss">

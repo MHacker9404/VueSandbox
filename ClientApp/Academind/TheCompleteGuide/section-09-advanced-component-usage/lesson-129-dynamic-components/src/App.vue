@@ -5,15 +5,17 @@
                 <button @click="selectedComponent='app-quote'">Quote</button>
                 <button @click="selectedComponent='app-author'">Author</button>
                 <button @click="selectedComponent='app-new'">New</button>
-                <hr>
-                <p>{{selectedComponent}}</p>
-                <component :is='selectedComponent'>
-                    <h2 slot='title'>{{title}}</h2>
-                    <h3 slot='subtitle'>Provided subtitle</h3>
-                    <p slot='content'>{{quote}}</p>
-                    <!-- default slot -->
-                    <p>{{quote}}</p>
-                </component>
+                <hr />
+                <p>{{ selectedComponent }}</p>
+                <keep-alive>
+                    <component :is="selectedComponent">
+                        <h2 slot="title">{{ title }}</h2>
+                        <h3 slot="subtitle">Provided subtitle</h3>
+                        <p slot="content">{{ quote }}</p>
+                        <!-- default slot -->
+                        <p>{{ quote }}</p>
+                    </component>
+                </keep-alive>
                 <!--
                 <app-quote>
                     <h2 slot='title'>{{title}}</h2>
@@ -45,7 +47,7 @@
         private quote: string = `It's a wonderful life!`;
         private title: string = `The Quote`;
         private selectedComponent = 'app-quote';
-     }
+    }
 </script>
 
 <style scoped lang="scss">
