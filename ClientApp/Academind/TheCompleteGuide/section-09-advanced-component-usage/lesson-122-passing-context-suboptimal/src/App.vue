@@ -1,20 +1,21 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-            </div>
-        </div>
+        <app-quote :quote='quote'></app-quote>
     </div>
 </template>
 
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
+    import Quote from './components/Quote.vue';
 
     @Component({
         components: {
+            'app-quote': Quote,
         },
     })
-    export default class App extends Vue { }
+    export default class App extends Vue {
+        private quote: string = `It's a wonderful life!`;
+     }
 </script>
 
 <style lang="scss">
