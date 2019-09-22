@@ -3,12 +3,15 @@
         <div class="title row quote">
             <div class="col-xs-12">
                 <slot name='title'></slot>
+                <span class='subtitle'><slot name='subtitle'>The Subtitle</slot></span>
             </div>
         </div>
         <hr>
         <div class="content row quote">
             <div class="col-xs-12">
-                <slot name='content'></slot>
+                <!-- <slot name='content'></slot> -->
+                <!-- default slot -->
+                <slot></slot>
             </div>
         </div>
     </div>
@@ -30,7 +33,18 @@
         text-align: center;
     }
     .title {
-        font-style: italic
+        font-style: italic;
+    }
+    .subtitle {
+        text-decoration: line-through;
+        color: gray;
+        opacity: .5;
+    }
+    .content {
+        font-style: oblique;
+        font-weight: bold;
+        text-decoration: underline overline dotted;
+        text-decoration-style: wavy;
     }
     h2 {
         color: red;

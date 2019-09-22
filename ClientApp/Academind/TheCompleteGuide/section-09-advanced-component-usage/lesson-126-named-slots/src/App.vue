@@ -4,7 +4,10 @@
             <div class="col-xs-12 component">
                 <app-quote>
                     <h2 slot='title'>{{title}}</h2>
-                    <p slot='content'>{{quote}}</p>
+                    <h3 slot='subtitle'>Provided subtitle</h3>
+                    <!-- <p slot='content'>{{quote}}</p> -->
+                    <!-- default slot -->
+                    <p>{{quote}}</p>
                 </app-quote>
             </div>
         </div>
