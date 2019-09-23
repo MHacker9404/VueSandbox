@@ -23,7 +23,8 @@
     "name": "lesson-137-quote-app",
     "private": true,
     "scripts": {
-        "build": "vue-cli-service build",
+        "build:prod": "vue-cli-service build --mode production",
+        "build:dev": "vue-cli-service build --mode development",
         "lint": "vue-cli-service lint",
         "serve": "vue-cli-service serve"
     },
