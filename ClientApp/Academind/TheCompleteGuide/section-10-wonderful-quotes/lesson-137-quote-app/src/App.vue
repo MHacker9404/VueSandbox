@@ -1,10 +1,11 @@
 <template>
   <div class='container'>
+      <app-new-quote @quoteAdded='newQuote'></app-new-quote>
+      <app-quote-grid :quotes='quotes'></app-quote-grid>
       <div class="row">
-          <app-new-quote></app-new-quote>
-      </div>
-      <div class="row">
-          <app-quote-grid :quotes='quotes'></app-quote-grid>
+          <div class="col-sm-12 text-center">
+              <div class="alert alert-info">Click on a quote to delete it</div>
+          </div>
       </div>
   </div>
 </template>
@@ -23,6 +24,10 @@ import NewQuote from './components/NewQuote.vue';
 export default class App extends Vue {
     private maxQuotes: number = 10;
     private quotes: string[] = ['Just a quote to see something'];
+
+    private newQuote(quote: string): void {
+       this.quotes.push(quote);
+    }
 }
 </script>
 

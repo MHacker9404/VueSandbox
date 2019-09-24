@@ -1,16 +1,32 @@
 <template>
-<div class="new-quote"></div>
+<div class="new-quote row">
+    <form action=" ">
+    <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-md-6 col-md-offset-3 form-group">
+        <label>Quote</label>
+        <textarea class='form-control' rows=3 v-model='quote'></textarea>
+    </div>
+    <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-md-6 col-md-offset-3 form-group">
+        <button class="btn btn-primary" @click.prevent='createNew'>Add Quote</button>
+    </div>
+    </form>
+</div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 @Component
 export default class NewQuote extends Vue {
+    private quote: string = '';
+
+    private createNew(): void {
+        this.$emit('quoteAdded', this.quote);
+        this.quote = '';
+    }
 }
 </script>
 
 <style scoped lang="scss">
 .new-quote {
-
+    border: 1px solid red;
 }
 </style>

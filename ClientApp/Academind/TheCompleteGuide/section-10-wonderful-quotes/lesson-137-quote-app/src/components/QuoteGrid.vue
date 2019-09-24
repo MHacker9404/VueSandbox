@@ -1,7 +1,7 @@
 <template>
- <div class="quote-grid">
-     <div class="row justify-content-md-left">
-         <app-quote v-for='_quote in _quotes' :key='_quote'>{{_quote}}</app-quote>
+ <div class="row quote-grid">
+     <div class="col" v-for='_quote in _quotes' :key='_quote'>
+         <app-quote >{{_quote}}</app-quote>
      </div>
 </div>
 </template>
@@ -24,7 +24,7 @@ export default class QuoteGrid extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .quote-grid {
 
 }
