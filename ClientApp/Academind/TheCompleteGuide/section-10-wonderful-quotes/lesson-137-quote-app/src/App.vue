@@ -1,6 +1,9 @@
 <template>
   <div class='container-fluid'>
       <div class="row justify-content-center">
+          <app-header></app-header>
+      </div>
+      <div class="row justify-content-center">
           <div class="col col-xs-12 col-sm-8 col-md-4 col-lg-2">
               <app-new-quote @quoteAdded='newQuote'></app-new-quote>
           </div>
@@ -22,11 +25,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import QuoteGrid from './components/QuoteGrid.vue';
 import NewQuote from './components/NewQuote.vue';
+import Header from './components/Header.vue';
 
 @Component({
     components: {
         'app-quote-grid': QuoteGrid,
         'app-new-quote': NewQuote,
+        'app-header': Header,
     },
 })
 export default class App extends Vue {
