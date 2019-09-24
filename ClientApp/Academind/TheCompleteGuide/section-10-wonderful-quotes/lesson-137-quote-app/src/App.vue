@@ -1,9 +1,17 @@
 <template>
-  <div class='container'>
-      <app-new-quote @quoteAdded='newQuote'></app-new-quote>
-      <app-quote-grid :quotes='quotes'></app-quote-grid>
-      <div class="row">
-          <div class="col-sm-12 text-center">
+  <div class='container-fluid'>
+      <div class="row justify-content-center">
+          <div class="col col-xs-12 col-sm-8 col-md-4 col-lg-2">
+              <app-new-quote @quoteAdded='newQuote'></app-new-quote>
+          </div>
+      </div>
+      <div class="row justify-content-left">
+          <div class="col">
+              <app-quote-grid :quotes='quotes'></app-quote-grid>
+          </div>
+      </div>
+      <div class="row justify-content-center">
+          <div class="col text-center">
               <div class="alert alert-info">Click on a quote to delete it</div>
           </div>
       </div>

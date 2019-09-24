@@ -1,10 +1,10 @@
 <template>
 <div class="quote">
-<div class="panel panel-default">
-    <div class="panel-body">
-        <slot></slot>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <slot></slot>
+        </div>
     </div>
-</div>
 </div>
 </template>
 

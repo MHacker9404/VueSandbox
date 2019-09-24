@@ -1,7 +1,9 @@
 <template>
- <div class="row quote-grid">
-     <div class="col" v-for='_quote in _quotes' :key='_quote'>
-         <app-quote >{{_quote}}</app-quote>
+ <div class="quote-grid">
+     <div class="row">
+         <div class="col" v-for='_quote in _quotes' :key='_quote'>
+             <app-quote>{{_quote}}</app-quote>
+         </div>
      </div>
 </div>
 </template>
