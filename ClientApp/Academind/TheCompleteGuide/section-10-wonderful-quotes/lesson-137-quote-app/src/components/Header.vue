@@ -16,6 +16,6 @@
 
 <style scoped lang='scss'>
 .header {
-
+    border: 1px dashed green;
 }
 </style>

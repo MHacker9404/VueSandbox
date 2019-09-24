@@ -1,7 +1,9 @@
 <template>
   <div class='container-fluid'>
       <div class="row justify-content-center">
-          <app-header></app-header>
+          <div class="col">
+              <app-header></app-header>
+          </div>
       </div>
       <div class="row justify-content-center">
           <div class="col col-xs-12 col-sm-8 col-md-4 col-lg-2">
