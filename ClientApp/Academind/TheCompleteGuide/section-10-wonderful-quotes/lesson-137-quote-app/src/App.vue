@@ -7,7 +7,7 @@
       </div>
       <div class="row justify-content-left">
           <div class="col">
-              <app-quote-grid :quotes='quotes'></app-quote-grid>
+              <app-quote-grid :quotes='quotes' @quoteDeleted='deleteQuote'></app-quote-grid>
           </div>
       </div>
       <div class="row justify-content-center">
@@ -35,6 +35,10 @@ export default class App extends Vue {
 
     private newQuote(quote: string): void {
        this.quotes.push(quote);
+    }
+
+    private deleteQuote(index: number) {
+        this.quotes.splice(index, 1);
     }
 }
 </script>

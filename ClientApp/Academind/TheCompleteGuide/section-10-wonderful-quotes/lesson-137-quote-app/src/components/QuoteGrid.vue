@@ -1,8 +1,8 @@
 <template>
  <div class="quote-grid">
      <div class="row">
-         <div class="col" v-for='_quote in _quotes' :key='_quote'>
-             <app-quote>{{_quote}}</app-quote>
+         <div class="col" v-for='(_quote, index) in _quotes' :key='_quote'>
+             <app-quote @click.native='deleteQuote(index)'>{{_quote}}</app-quote>
          </div>
      </div>
 </div>
@@ -22,6 +22,10 @@ export default class QuoteGrid extends Vue {
 
     private get _quotes(): string[] {
         return this.quotes;
+    }
+
+    private deleteQuote(index: number): void {
+        this.$emit('quoteDeleted', index);
     }
 }
 </script>
