@@ -2,7 +2,7 @@
   <div class='container-fluid'>
       <div class="row justify-content-center">
           <div class="col">
-              <app-header></app-header>
+              <app-header :quoteCount='quotes.length' :maxQuotes='maxQuotes'></app-header>
           </div>
       </div>
       <div class="row justify-content-center">
@@ -41,7 +41,11 @@ export default class App extends Vue {
     private quotes: string[] = ['Just a quote to see something'];
 
     private newQuote(quote: string): void {
-       this.quotes.push(quote);
+        if(this.quotes.length >= this.maxQuotes){
+            return alert('Please delete one or more quotes first');
+        }
+
+        this.quotes.push(quote);
     }
 
     private deleteQuote(index: number) {

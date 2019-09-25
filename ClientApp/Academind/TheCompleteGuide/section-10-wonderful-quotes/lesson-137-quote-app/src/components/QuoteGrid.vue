@@ -1,7 +1,7 @@
 <template>
  <div class="quote-grid">
      <div class="row">
-         <div class="col" v-for='(_quote, index) in _quotes' :key='_quote'>
+         <div class="col" v-for='(_quote, index) in _quotes' :key='index'>
              <app-quote @click.native='deleteQuote(index)'>{{_quote}}</app-quote>
          </div>
      </div>
