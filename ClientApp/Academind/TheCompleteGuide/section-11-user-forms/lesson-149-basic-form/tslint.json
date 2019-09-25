@@ -1,19 +1,29 @@
 {
-  "defaultSeverity": "warning",
-  "extends": [
-    "tslint:recommended"
-  ],
-  "linterOptions": {
-    "exclude": [
-      "node_modules/**"
-    ]
-  },
-  "rules": {
-    "indent": [true, "spaces", 2],
-    "interface-name": false,
-    "no-consecutive-blank-lines": false,
-    "object-literal-sort-keys": false,
-    "ordered-imports": false,
-    "quotemark": [true, "single"]
-  }
+    "defaultSeverity": "warning",
+    "extends": ["tslint:latest", "tslint-config-prettier"],
+    "linterOptions": {
+        "exclude": ["node_modules/**"]
+    },
+    "rules": {
+        "indent": [true, "spaces", 4],
+        "interface-name": false,
+        "max-line-length": [
+            true,
+            {
+                "check-regex": true,
+                "check-strings": true,
+                "limit": 145
+            }
+        ],
+        "no-consecutive-blank-lines": true,
+        "no-console": false,
+        "no-duplicate-variable": true,
+        "no-empty": true,
+        "no-trailing-whitespace": true,
+        "no-submodule-imports": false,
+        "object-literal-sort-keys": false,
+        "ordered-imports": false,
+        "quotemark": [true, "single"],
+        "triple-equals": [true, "allow-null-check"]
+    }
 }
