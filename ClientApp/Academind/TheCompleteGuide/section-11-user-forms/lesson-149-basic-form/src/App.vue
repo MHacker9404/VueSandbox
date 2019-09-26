@@ -6,11 +6,11 @@
                     <h1>File a Complaint</h1>
                     <hr>
                     <div class="form-group">
-                        <label for="email">Mail</label>
+                        <label for="_email">Mail</label>
                         <input type="text"
                                 id="email"
                                 class="form-control"
-                                v-model='_email'>
+                                v-model='email'>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
@@ -101,7 +101,7 @@
                         <h4>Your Data</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Mail: {{ _email }}</p>
+                        <p>Mail: {{ email }}</p>
                         <p>Password:</p>
                         <p>Age:</p>
                         <p>Message: </p>
@@ -125,7 +125,7 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component({
 })
 export default class App extends Vue {
-    private _email: string = '';
+    private email: string = '';
 }
 </script>
 
