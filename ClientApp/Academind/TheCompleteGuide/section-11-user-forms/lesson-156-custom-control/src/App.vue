@@ -11,7 +11,11 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" class="form-control" v-model='userData.password'>
+                        <input type="password" id="password" class="form-control"
+                        :value='userData.email'
+                        @input='userData.email = $event.target.value'
+                        >
+                        <!-- v-model='userData.password' -->
                     </div>
                     <div class="form-group">
                         <label for="age">Age</label>
@@ -59,17 +63,23 @@
                     </select>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 from-group">
+                    <app-toggle-switch v-model='dataSwitch'></app-toggle-switch>
+                </div>
+            </div>
             <hr>
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <button
-                            class="btn btn-primary">Submit!
+                            class="btn btn-primary"
+                            @click.prevent='onSubmit'>Submit!
                     </button>
                 </div>
             </div>
         </form>
         <hr>
-        <div class="row">
+        <div class="row" v-if='isSubmitted'>
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -86,7 +96,7 @@
                         </ul>
                         <p>Gender: {{ gender }}</p>
                         <p>Priority: {{ selectedPriority }}</p>
-                        <p>Switched:</p>
+                        <p>Switched: {{dataSwitch}}</p>
                     </div>
                 </div>
             </div>
@@ -96,8 +106,12 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import ToggleSwitch from './components/ToggleSwitch.vue';
 
 @Component({
+    components: {
+        'app-toggle-switch': ToggleSwitch
+    }
 })
 export default class App extends Vue {
     private userData:any = { email: '', password: '', age: 21};
@@ -106,6 +120,12 @@ export default class App extends Vue {
     private gender:string = 'Male';
     private priorities: any = ['High', 'Medium', 'Low'];
     private selectedPriority:string = 'High';
+    private dataSwitch: boolean = true;
+    private isSubmitted: boolean = false;
+
+    private onSubmit(): void {
+        this.isSubmitted = true;
+    }
 }
 </script>
 
