@@ -6,7 +6,7 @@
     },
     "rules": {
         "indent": [true, "spaces", 4],
-        "interface-name": false,
+        "interface-name": true,
         "max-line-length": [
             true,
             {
@@ -19,8 +19,9 @@
         "no-console": false,
         "no-duplicate-variable": true,
         "no-empty": true,
-        "no-trailing-whitespace": true,
+        "no-string-literal": false,
         "no-submodule-imports": false,
+        "no-trailing-whitespace": true,
         "object-literal-sort-keys": false,
         "ordered-imports": false,
         "quotemark": [true, "single"],

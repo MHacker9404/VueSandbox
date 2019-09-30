@@ -5,17 +5,18 @@ export const HighlightDirective = {
         // el.style.backgroundColor = 'lightgreen';
         // el.style.backgroundColor = binding.value;
         let delay = 0;
-        if (binding.modifiers['delayed']) {
+        if (binding.modifiers.delayed) {
             delay = 3000;
         }
 
-        if (binding.modifiers['blink']) {
+        if (binding.modifiers.blinking) {
             const mainColor = 'green';
             const secondColor = 'blue';
             let currentColor = mainColor;
             setTimeout(() => {
                 setInterval(() => {
                     currentColor = currentColor === mainColor ? secondColor : mainColor;
+                    el.style.color = currentColor;
                 }, 1000);
             }, delay);
         }

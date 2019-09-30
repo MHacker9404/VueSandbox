@@ -15,7 +15,7 @@
                 <p v-highlight:background="'lightcoral'">Color this</p>
                 <p v-highlight="'lightcoral'">Color this</p>
                 <p v-highlight.delayed="'lightcoral'">Color this</p>
-                <!-- <p v-highlight.delayed.blink="'lightcoral'">Blink this</p> -->
+                <p v-highlight.blinking="'lightcoral'">Blink this</p>
             </div>
         </div>
     </div>
