@@ -10,40 +10,23 @@ export const HighlightDirective = {
         }
 
         if (binding.modifiers.blinking) {
-            const mainColor = 'green';
-            const secondColor = 'blue';
+            // const mainColor = 'red';
+            // const secondColor = 'blue';
+            const mainColor = binding.value.mainColor;
+            const secondColor = binding.value.secondColor;
             let currentColor = mainColor;
             setTimeout(() => {
                 setInterval(() => {
                     currentColor = currentColor === mainColor ? secondColor : mainColor;
-                    el.style.color = currentColor;
-                }, 1000);
+                    if (binding.arg === 'background') {
+                        el.style.backgroundColor = currentColor;
+                    } else {
+                        el.style.color = currentColor;
+                    }
+                }, binding.value.delay);
             }, delay);
         }
-
-        setTimeout(() => {
-            if (binding.arg === 'background') {
-                el.style.backgroundColor = binding.value;
-            } else {
-                el.style.color = binding.value;
-            }
-        }, delay);
     },
 };
 
 Vue.directive('highlight', HighlightDirective);
-
-/*
-//    hooks
-//    bind(el, binding, vnode) - once directive is attached
-//    inserted(el, binding, vnode) - inserted in Parent Node
-//    update(el, binding, vnode, oldVNode) - once component is updated
-//    componentUpdated(el, binding, vnode, oldVNode) - once component is updated
-//    unbind(el, binding, vnode) - once component is removed
-Vue.directive('highlight', {
-    bind(el: HTMLElement, binding: any, vnode: any) {
-        // el.style.backgroundColor = 'lightgreen';
-        el.style.backgroundColor = binding.value;
-    },
-}); // add v-highlight
-*/
