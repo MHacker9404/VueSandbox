@@ -5,7 +5,11 @@ import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+import { GlobalMixin } from './GlobalMixin';
+
 console.log(process.env.NODE_ENV);
+
+Vue.mixin(GlobalMixin);
 
 Vue.use(BootstrapVue);
 

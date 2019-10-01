@@ -4,6 +4,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <h1>Filters && Mixins</h1>
+                <p>{{text}}</p>
                 <hr>
                 <input type="text" v-model='filterText'>
                 <ul>
@@ -25,6 +26,9 @@ import { FruitMixin } from './fruitMixin';
     mixins: [FruitMixin]
 })
 export default class App extends Vue {
+    protected created() {
+        console.log('App created');
+    }
 }
 </script>
 
