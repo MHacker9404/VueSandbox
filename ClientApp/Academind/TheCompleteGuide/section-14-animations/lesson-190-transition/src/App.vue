@@ -9,7 +9,10 @@
                 <br />
                 <br />
                 <transition name='fade'>
-                    <div class="alert alert-info" v-if='show'>This is some info</div>
+                    <div class="alert alert-success" v-if='show'>This is some info</div>
+                </transition>
+                <transition name='slide'>
+                    <div class="alert alert-danger" v-if='show'>This is some info</div>
                 </transition>
             </div>
         </div>
@@ -29,7 +32,7 @@ export default class App extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -42,13 +45,50 @@ export default class App extends Vue {
 .fade-enter {
     opacity: 0;
 }
+
 .fade-enter-active {
     transition: opacity 1.5s;
 }
+
 .fade-leave {}
 
 .fade-leave-active {
     transition: opacity 1.5s;
     opacity: 0;
+}
+
+.slide-enter {
+    opacity: 0;
+}
+
+.slide-enter-active {
+    animation: slide-in 1.5s ease-out forwards;
+    transition: opacity 1.5s;
+}
+
+.slide-leave {}
+
+.slide-leave-active {
+    animation: slide-out 1.5s ease-out forwards;
+    transition: opacity 1.5s;
+    opacity: 0;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(40px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(40px);
+    }
 }
 </style>
