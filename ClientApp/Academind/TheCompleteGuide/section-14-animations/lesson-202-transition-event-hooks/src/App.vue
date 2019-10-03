@@ -56,6 +56,19 @@
                 <transition name='fade' mode='out-in'>
                     <component :is='selectedComponent'></component>
                 </transition>
+                <hr>
+                <button class="btn btn-primary" @click='addItem'>Add Item</button>
+                <br />
+                <br />
+                <ul class="list-group">
+                    <transition-group name='slide'>
+                        <li class="list-group-item"
+                            v-for='(number, index) in numbers'
+                            :key='index'
+                            @click='removeItem(index)'
+                            style="cursor: pointer">{{number}}</li>
+                    </transition-group>
+                </ul>
             </div>
         </div>
     </div>
@@ -66,6 +79,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import   DangerAlert  from './DangerAlert.vue';
 import   SuccessAlert  from './SuccessAlert.vue';
+import { last as _last, findIndex as _findIndex } from 'lodash';
 
 @Component({
     components: {
@@ -80,11 +94,22 @@ export default class App extends Vue {
     private alertAnimation: string = 'Fade';
     private elementWidth: number = 100;
     private selectedComponent: string = 'app-success-alert'
+    private numbers: number[] = [1,2,3,4,5];
 
     private toggleComponent(): void {
         this.selectedComponent = this.selectedComponent === 'app-success-alert'
             ? 'app-danger-alert'
             : 'app-success-alert';
+    }
+
+    private addItem(): void {
+        const pos = Math.floor(Math.random() * this.numbers.length);
+        const last = _last(this.numbers);
+        this.numbers.splice(pos, 0, last + 1)
+    }
+
+    private removeItem(index): void {
+        this.numbers.splice(index, 1);
     }
 
     private beforeEnter(el): void {
@@ -176,6 +201,11 @@ export default class App extends Vue {
     animation: slide-out 1.5s ease-out forwards;
     transition: opacity 1.5s;
     opacity: 0;
+    position: absolute;
+}
+
+.slide-move {
+    transition: transform 1s;
 }
 
 @keyframes slide-in {
