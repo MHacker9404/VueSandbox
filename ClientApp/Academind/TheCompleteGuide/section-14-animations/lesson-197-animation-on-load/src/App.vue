@@ -17,6 +17,12 @@
                 <transition name='fade' appear>
                     <div class="alert alert-success">This is some info on-load</div>
                 </transition>
+                <transition
+                    name='slide'
+                    enter-active-class='animated bounce'
+                    leave-active-class='animated shake'>
+                    <div class="alert alert-success" v-if='show'>This is some info on-load</div>
+                </transition>
             </div>
         </div>
     </div>
