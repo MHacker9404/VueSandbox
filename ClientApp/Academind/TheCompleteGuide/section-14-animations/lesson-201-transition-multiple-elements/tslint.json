@@ -1,0 +1,33 @@
+{
+    "defaultSeverity": "warning",
+    "extends": ["tslint:latest", "tslint-config-prettier"],
+    "linterOptions": {
+        "exclude": ["node_modules/**"]
+    },
+    "rules": {
+        "ban-ts-ignore": true,
+        "indent": [true, "spaces", 4],
+        "interface-name": true,
+        "max-line-length": [
+            true,
+            {
+                "check-regex": true,
+                "check-strings": true,
+                "limit": 145
+            }
+        ],
+        "member-access": true,
+        "no-consecutive-blank-lines": true,
+        "no-console": false,
+        "no-duplicate-variable": true,
+        "no-empty": true,
+        "no-reference": true,
+        "no-string-literal": false,
+        "no-submodule-imports": false,
+        "no-trailing-whitespace": true,
+        "object-literal-sort-keys": false,
+        "ordered-imports": false,
+        "quotemark": [true, "single"],
+        "triple-equals": [true, "allow-null-check"]
+    }
+}
