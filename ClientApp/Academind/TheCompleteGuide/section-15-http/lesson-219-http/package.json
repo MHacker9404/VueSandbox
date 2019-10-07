@@ -1,7 +1,7 @@
 {
     "dependencies": {
         "bootstrap": "^4.3.1",
-        "bootstrap-vue": "^2.0.2",
+        "bootstrap-vue": "^2.0.3",
         "core-js": "^3.2.1",
         "jquery": "^3.4.1",
         "lodash": "^4.17.15",
@@ -15,7 +15,7 @@
     },
     "devDependencies": {
         "@types/lodash": "^4.14.141",
-        "@types/node": "^12.7.10",
+        "@types/node": "^12.7.11",
         "@types/webpack-env": "^1.14.0",
         "@vue/cli-plugin-babel": "^3.11.0",
         "@vue/cli-plugin-typescript": "^3.11.0",

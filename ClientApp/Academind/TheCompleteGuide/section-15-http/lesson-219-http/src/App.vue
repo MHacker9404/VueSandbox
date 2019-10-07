@@ -16,12 +16,26 @@
                 <button class="btn btn-primary" @click='submit'>Submit</button>
             </div>
         </div>
+        <hr>
+        <div class="row">
+            <!--<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">-->
+            <div class="col">
+                <button class="btn btn-primary" @click='getUsers'>Get users</button>
+                <hr>
+                <ul>
+                    <li v-for='usr in users' :key='usr.userName'>
+                        {{usr.userName}} - {{usr.password}}
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { cloneDeep as _cloneDeep, map as _map } from 'lodash';
 
 @Component({
   components: { },
@@ -31,10 +45,23 @@ export default class App extends Vue {
         userName: '',
         password: '',
     };
+    private users: Array<{userName: string, password: string}> = [];
+
     private submit(): void {
         //  https://vue-http-37f3f.firebaseio.com/
         this.$http.post(`https://vue-http-37f3f.firebaseio.com/data.json`, this.user)
             .then(res => console.log(res), error => console.log(error));
+    }
+    private getUsers(): void {
+        this.$http.get(`https://vue-http-37f3f.firebaseio.com/data.json`)
+        .then(res => res.json(), error => console.error(error))
+        .then((data: any) => {
+            this.users = _cloneDeep(_map(data, (d: any) => ({userName: d.userName, password: d.password})));
+            });
+    }
+
+    private whatEver(): void {
+        // this.$http.options.root = `https://vue-http-37f3f.firebaseio.com/data.json`;
     }
 }
 </script>
