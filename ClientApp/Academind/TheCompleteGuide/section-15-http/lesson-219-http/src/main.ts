@@ -12,6 +12,8 @@ console.log(process.env.NODE_ENV);
 Vue.use(BootstrapVue);
 Vue.use(VueResource);
 
+Vue.http.options.root = `https://vue-http-37f3f.firebaseio.com/`;
+
 Vue.config.productionTip = false;
 
 new Vue({
