@@ -11,7 +11,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 
-const router = new VueRouter({ routes });
+const router = new VueRouter({ routes, mode: 'history' });
 
 Vue.config.productionTip = false;
 
