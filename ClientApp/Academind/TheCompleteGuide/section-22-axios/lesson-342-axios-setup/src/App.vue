@@ -13,7 +13,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { cloneDeep as _cloneDeep, map as _map } from 'lodash';
 
 @Component({
     components: {},
