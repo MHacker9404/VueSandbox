@@ -52,12 +52,14 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import axios from 'axios';
+
 @Component({
     components: {},
 })
 export default class SignUp extends Vue {
     private email: string = '';
-    private age?: number;
+    private age: number = 0;
     private password: string = '';
     private confirmPassword: string = '';
     private country: string = 'usa';
@@ -76,6 +78,7 @@ export default class SignUp extends Vue {
         this.hobbyInputs = this.hobbyInputs.filter((hobby) => hobby.id !== id);
     }
 
+    //  https://vue-http-37f3f.firebaseio.com/
     private onSubmit(): void {
         const formData = {
             email: this.email,
@@ -87,8 +90,26 @@ export default class SignUp extends Vue {
             terms: this.terms,
         };
         console.log(formData);
+
+        axios
+            .post(`https://vue-http-37f3f.firebaseio.com/users.json`, formData)
+            .then((res: any) => console.info(res), (error: any) => console.error(error));
     }
 }
+/*
+// Same as axios()
+this.$http()
+this.$axios()
+// Can get axios instance on Vue constructor
+Vue.$http()
+Vue.$axios()
+
+// Same as methods(get, post, put etc.) on axios
+this.$http.get().then()
+this.$axios.get().then()
+Vue.$http.get().then()
+Vue.$axios.get().then()
+*/
 </script>
 
 <style scoped lang="scss">
